@@ -7,22 +7,48 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_06():
-    """
-    La columna 5 codifica un diccionario donde cada cadena de tres letras
-    corresponde a una clave y el valor despues del caracter `:` corresponde al
-    valor asociado a la clave. Por cada clave, obtenga el valor asociado mas
-    pequeño y el valor asociado mas grande computados sobre todo el archivo.
+    import csv
+    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    claves = {}  
+    with open(data, mode="r", encoding="utf-8") as archivo:
+        for linea in archivo:
+            partes = linea.strip().split("\t")
+            diccionario_codificado = partes[4]  
+            pares = diccionario_codificado.split(",")
+            for par in pares:
+                try:
+                    clave, valor = par.split(":")  
+                    valor = int(valor)  
+                    if clave in claves:
+                        claves[clave].append(valor)
+                    else:
+                        claves[clave] = [valor]
+                except ValueError:
+                    continue
+    resultados = [(clave, min(valores), max(valores)) for clave, valores in claves.items()]
+    
+    return sorted(resultados)
+print(pregunta_06())    
+    
+    
+    
+    
+"""
+La columna 5 codifica un diccionario donde cada cadena de tres letras
+corresponde a una clave y el valor despues del caracter `:` corresponde al
+valor asociado a la clave. Por cada clave, obtenga el valor asociado mas
+pequeño y el valor asociado mas grande computados sobre todo el archivo.
 
-    Rta/
-    [('aaa', 1, 9),
-     ('bbb', 1, 9),
-     ('ccc', 1, 10),
-     ('ddd', 0, 9),
-     ('eee', 1, 7),
-     ('fff', 0, 9),
-     ('ggg', 3, 10),
-     ('hhh', 0, 9),
-     ('iii', 0, 9),
-     ('jjj', 5, 17)]
+Rta/
+[('aaa', 1, 9),
+    ('bbb', 1, 9),
+    ('ccc', 1, 10),
+    ('ddd', 0, 9),
+    ('eee', 1, 7),
+    ('fff', 0, 9),
+    ('ggg', 3, 10),
+    ('hhh', 0, 9),
+    ('iii', 0, 9),
+    ('jjj', 5, 17)]
 
-    """
+"""

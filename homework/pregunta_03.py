@@ -7,11 +7,22 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_03():
-    """
-    Retorne la suma de la columna 2 por cada letra de la primera columna como
-    una lista de tuplas (letra, suma) ordendas alfabeticamente.
+    import csv
+    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    suma_por_letra = {}
 
-    Rta/
-    [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
-
-    """
+    with open(data, mode="r", encoding="utf-8") as archivo:
+        for linea in archivo:
+            partes = linea.strip().split("\t")
+            letra = partes[0] 
+            try:
+                valor = int(float(partes[1])) 
+            except ValueError:
+                continue
+            if letra in suma_por_letra:
+                suma_por_letra[letra] += valor
+            else:
+                suma_por_letra[letra] = valor
+    resultado = sorted(suma_por_letra.items())
+    return resultado
+print(pregunta_03())

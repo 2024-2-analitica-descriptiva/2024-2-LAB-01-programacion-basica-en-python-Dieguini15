@@ -7,20 +7,38 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_09():
-    """
-    Retorne un diccionario que contenga la cantidad de registros en que
-    aparece cada clave de la columna 5.
+    
+    import csv
+    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    conteos = {}
+    with open(data, mode="r", encoding="utf-8") as archivo:
+        for linea in archivo:
+            partes = linea.strip().split("\t")
+            diccionario_codificado = partes[4]
+            claves = [par.split(":")[0] for par in diccionario_codificado.split(",")]
+            for clave in claves:
+                if clave in conteos:
+                    conteos[clave] += 1
+                else:
+                    conteos[clave] = 1
+    conteos_ordenados = dict(sorted(conteos.items()))
+    return conteos_ordenados
+print(pregunta_09())
+            
+"""
+Retorne un diccionario que contenga la cantidad de registros en que
+aparece cada clave de la columna 5.
 
-    Rta/
-    {'aaa': 13,
-     'bbb': 16,
-     'ccc': 23,
-     'ddd': 23,
-     'eee': 15,
-     'fff': 20,
-     'ggg': 13,
-     'hhh': 16,
-     'iii': 18,
-     'jjj': 18}}
+Rta/
+{'aaa': 13,
+    'bbb': 16,
+    'ccc': 23,
+    'ddd': 23,
+    'eee': 15,
+    'fff': 20,
+    'ggg': 13,
+    'hhh': 16,
+    'iii': 18,
+    'jjj': 18}}
 
-    """
+"""
