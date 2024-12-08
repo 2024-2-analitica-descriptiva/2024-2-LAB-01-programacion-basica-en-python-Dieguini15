@@ -16,6 +16,7 @@ def pregunta_01():
    
     return x
 print(pregunta_01())
+##dadd
 """
 Retorne la suma de la segunda columna.
 
