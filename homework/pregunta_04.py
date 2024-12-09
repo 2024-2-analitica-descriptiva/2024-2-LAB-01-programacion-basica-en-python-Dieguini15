@@ -7,7 +7,7 @@ utilizar pandas, numpy o scipy.
 
 def pregunta_04():
     import csv
-    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    data = "files/input/data.csv"
     meses = [f"{i:02}" for i in range(1, 13)]
     conteos = [0] * 12 
     with open(data, mode="r", encoding="utf-8") as archivo:

@@ -9,7 +9,7 @@ utilizar pandas, numpy o scipy.
 def pregunta_02():
     
     import csv
-    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    data = "files/input/data.csv"
     contadores = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0}
     with open(data, mode="r", encoding="utf-8") as datos:
         for linea in datos:

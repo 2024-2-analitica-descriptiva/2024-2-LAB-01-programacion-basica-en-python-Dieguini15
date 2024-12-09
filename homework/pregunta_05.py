@@ -8,7 +8,7 @@ utilizar pandas, numpy o scipy.
 
 def pregunta_05():
     import csv
-    data = r"C:\analiticadescriptiva\2024-2-LAB-01-programacion-basica-en-python-Dieguini15\data.csv"
+    data = "files/input/data.csv"
     letras = ['A', 'B', 'C', 'D', 'E']
     maximos = [-float('inf')] * 5 
     minimos = [float('inf')] * 5  
